@@ -1,0 +1,27 @@
+{
+  "name": "get-latest-kinesis-records",
+  "version": "1.0.0",
+  "description": "A tool for fetching the latest set of event records easily from a Kinesis stream",
+  "main": "get-latest-kinesis-records.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "kinesis",
+    "tool",
+    "events",
+    "aws"
+  ],
+  "author": "***REMOVED*** ***REMOVED***",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.415.0"
+  },
+  "devDependencies": {
+    "jest": "^24.1.0",
+    "mockdate": "^2.0.2"
+  }
+}

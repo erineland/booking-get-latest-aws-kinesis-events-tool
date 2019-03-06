@@ -1,0 +1,35 @@
+{
+    "Records": [
+        {
+            "SequenceNumber": "49593277030732017570647013282412902159579270875134820354",
+            "ApproximateArrivalTimestamp": "2019-02-28T16:15:18.836Z",
+            "Data": {
+                "event_name": "TAXI_BOOKING_CONFIRMATION",
+                "id": "b250edb5-6bf7-4765-aab4-0b603d0ee15d",
+                "version": "1.0.0",
+                "event_time": "2019-02-28 16: 48: 03.711000",
+                "processing_time": "2019-02-28 16:48:03.711000",
+                "domain": "WEBSITE",
+                "transport_type": "PRE_BOOKED",
+                "source_platform": "WEB",
+                "payload": {
+                    "bookingDate": "2019-02-28",
+                    "siteType": null,
+                    "cancellaltionStatus": null,
+                    "cancellationDate": null,
+                    "experimentSeed": "005C6ED669AF344E76FFAC9D7A3485571D",
+                    "emkEmailId": "thisis***REMOVED***helloguys",
+                    "pickupDate": "2019-03-04",
+                    "pickupTime": "13:00",
+                    "returnJourney": false,
+                    "returnPickupDate": null,
+                    "returnPickupTime": null
+                },
+                "booking_reference": "10062196"
+            },
+            "PartitionKey": "web"
+        }
+    ],
+    "NextShardIterator": "AAAAAAAAAAH1nHRnneRILOSCuvaXk7C3QCEyiNAM5baHywGyJXFyxBQs35UpZKpEUgv9xHOdCSmx9HdvEm6sfiWAXMs67+8FnkW4pLEdinrXP9HNPU3vIvay4PNTw3viFwFBJgERVaNJ6Y7fHwch/EJrwXQa1bMK2QiYx1+AvdxkiBwRwjbI6pLZ5lCNsXYRJZgswGYRqVdOy7z4Q7E1rg8AAoXcoSKSBM1dpOR5JHKwBJZY7GE7Ag==",
+    "MillisBehindLatest": 0
+}
