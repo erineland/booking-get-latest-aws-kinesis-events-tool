@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 const AWS = require('aws-sdk');
 
 const getKinesisRecords = async (kinesis, shardIterator) => {
