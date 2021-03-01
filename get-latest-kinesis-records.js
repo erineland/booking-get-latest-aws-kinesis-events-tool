@@ -7,24 +7,33 @@ const getKinesisRecords = async (kinesis, shardIterator) => {
 
     let getRecordsResponse;
     try {
+        console.info(`Attempting to retrieve kinesis records`);
         getRecordsResponse = await kinesis.getRecords(getRecordsParams).promise();
     } catch (getRecordsError) {
         if (getRecordsError) {
-            throw new Error(
-                `getRecords request failed.
-                \n params: ${JSON.stringify(getRecordsParams)}
-                \n error: ${JSON.stringify(getRecordsError)}`);
+            const errorMessage = `getRecords request failed.
+            \n params: ${JSON.stringify(getRecordsParams)}
+            \n error: ${JSON.stringify(getRecordsError)}`;
+
+            console.error(`An error occurred: ${errorMessage}`);
+            throw new Error(errorMessage);
         }
     }
 
     const retrievedEvents = getRecordsResponse.Records;
+
+    console.info(`retrievedEvents are: ${JSON.stringify(retrievedEvents)}`);
     if (retrievedEvents && retrievedEvents.length > 0) {
         const parsedRecordEventData = [];
         getRecordsResponse.Records.forEach(record => {
             parsedRecordEventData.push(JSON.parse(record.Data));
         });
+
+        console.info(`The parsed data is: ${JSON.stringify(parsedRecordEventData)}`);
+
         return parsedRecordEventData;
     }
+    console.info(`No events were retrieved from the sream`);
 };
 
 const getShardIterator = async (kinesis, streamName, shardId, shardIteratorType = 'TRIM_HORIZON', unixTimestamp) => {
