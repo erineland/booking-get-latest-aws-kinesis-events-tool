@@ -3,6 +3,8 @@ A small tool to conveniently make the series of 3 or 4 requests required to retr
 
 You can supply the Kinesis stream name, Shard ID and a number of minutes from which to start reading Kinesis events in the given stream from.
 
-Has some defaults that are useful and specific to myself. 
+Has some defaults that are useful and specific to myself.
 
 To use the tool run the command `node get-latest-kinesis-records-runner.js 'dev'
+
+To get `BOOKING-META` events run: `node get-latest-kinesis-records-runner.js 'dev' 5 'website-eventstream-'`
