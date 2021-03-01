@@ -52,6 +52,7 @@ const getShardIterator = async (kinesis, streamName, shardId, shardIteratorType 
 };
 
 const getLatestKinesisRecordsTool = async (envToQuery, minsAgoToReadFrom, streamName, shardId) => {
+    console.log(`Attempting to get Kinesis stream records`);
     const defaultRegion = envToQuery === 'qa' ? 'eu-west-1' : 'us-west-2';
 
     const kinesis = new AWS.Kinesis({
@@ -70,10 +71,21 @@ const getLatestKinesisRecordsTool = async (envToQuery, minsAgoToReadFrom, stream
     const defaultShardId = shardId ? shardId : 'shardId-000000000000';
 
     try {
+        console.log(
+            `Attempting to fetch events for stream: ${fullStreamName} from ${defaultMinsAgoToReadFrom} minutes ago`
+        );
         const shardIterator = await getShardIterator(kinesis, fullStreamName, defaultShardId, 'AT_TIMESTAMP', unixTimestamp);
+
+        console.info(`shardIterator is: ${JSON.stringify(shardIterator)}`);
+
         const latestRecords = await getKinesisRecords(kinesis, shardIterator.ShardIterator);
+        console.info(`latestRecords are: ${JSON.stringify(latestRecords)}`);
+
+        console.info(`Retrieved records`);
+
         return latestRecords;
     } catch (error) {
+        console.info(`An error occurred: ${error}`);
         throw new Error(`getLatestKinesisRecordsTool error: ${JSON.stringify(error)}`);
     }
 };
